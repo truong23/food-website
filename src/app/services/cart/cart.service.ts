@@ -10,7 +10,7 @@ export class CartService {
   private cart:Cart = new Cart();
   constructor() { }
 
-  addTiCart(food: Food):void{
+  addToCart(food: Food):void{
     let cartItem = this.cart.items.find(item => item.food.id === food.id);
     if (cartItem) {
       this.changeQuantity(food.id, cartItem.quantity + 1);
@@ -19,7 +19,7 @@ export class CartService {
     this.cart.items.push(new CartItem(food))
   }
 
-  remoteFormCart(foodId: number) : void{
+  remoteFromCart(foodId: number) : void{
     this.cart.items= this.cart.items.filter(item => item.food.id != foodId)
   }
 
@@ -31,6 +31,5 @@ export class CartService {
 
   getCart():Cart{
     return this.cart
-
   }
 }
